@@ -143,10 +143,8 @@ def main():
         st.markdown(f"##### Seasonal Statistics for {selected_city}.")
         st.dataframe(stats[stats.city == selected_city].reset_index(drop=True))
         st.markdown("#")
-        st.markdown(f"##### Temperature Map for {selected_city}.")
-        map_fig = plot_city_temperature_map(selected_city, current_temp)
-        st.pyplot(map_fig)
+       
 
 if __name__ == "__main__":
-    st.video('https://www.youtube.com/watch?v=4OTDBRO38O0',autoplay=True, loop=True)
+    st.video('https://www.youtube.com/watch?v=bMCLCqFbYEI',autoplay=True, loop=True)
     main()
