@@ -11,3 +11,5 @@ Visualize temperature distributions per season.
 Detect temperature anomalies based on historical data.
 Display historical temperature trends with anomaly markers.
 Show seasonal statistics for selected cities.
+
+Link to app - https://kaicenatskibidirizzler.streamlit.app/
