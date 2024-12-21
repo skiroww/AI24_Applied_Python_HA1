@@ -148,5 +148,5 @@ def main():
         st.pyplot(map_fig)
 
 if __name__ == "__main__":
-    st.video('https://vkvideo.ru/video-29573241_456290413', loop=True)
+    st.video('https://www.youtube.com/watch?v=NW2FMQPKNSs', loop=True)
     main()
