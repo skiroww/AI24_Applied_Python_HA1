@@ -9,8 +9,56 @@ import geopandas as gpd
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 API_URL = "https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={API_KEY}"
+intro = '''
+[Интро]
+Это второй
+А
+That's a Krishtall
+Ау-у, YEEI, а
 
-st.title("Weather Analysis with Streamlit")
+[Припев]
+52 (Алло)
+Да здравствует Санкт-Петербург (А), и это город наш (YEEI)
+Я каждый свой новый куплет валю как никогда (YEEI, а)
+Альбом, он чисто мой, никому его не продам (Он мой)
+Не думаю о том (YEEI), как хорошо было вчера (А-а; мне пох)
+
+[Куплет]
+Меняю города (А)
+Представляю район — у меня есть репертуар (YEEI, 2-3)
+Никогда не просил, но всегда где-то доставал (Где?)
+Чем больше денег (А), тем больше мне нравится Москва (А)
+Но в Питере душа (YEEI), в Питере семья (YEEI)
+В Питере братва (А, а), там знают наши имена (52)
++7(952)8-1-2 (Алло)
+Это второй альбом (А), вторая глава (Второй)
+Не думал, не гадал, всё, что я делал, — рэповал (Всегда)
+Андеграунд — это не броуки в протёртых штанах (Пошёл на хуй)
+Нужно прожить мою жизнь, чтоб так же, как я, слагать (Ага)
+Нужно мой рэп услышать (YEEI), чтоб точно его понять
+See upcoming rap shows
+Get tickets for your favorite artists
+You might also like
+Первомай (May Day)
+Валентин Стрыкало (Valentin Strikalo)
+Ржавый (Rusty)
+Кишлак (Kishlak)
+GoodDayFlopTray
+DJ Stonik1917
+[Припев]
+52 (Алло)
+Да здравствует Санкт-Петербург (А), и это город наш (YEEI)
+Я каждый свой новый куплет валю как никогда (YEEI, а)
+Альбом, он чисто мой, никому его не продам (Он мой)
+Не думаю о том (YEEI), как хорошо было вчера (Ага)
+
+[Аутро]
+Да здравствует 52
+Да здравствует Петербург, да здравствует 52
+Да здравствует Петербург, да здравствует 52 (Ау; YEEI, а)
+Да здравствует 52 (Ау), YEEI, long live (Это второй)
+'''
+st.title(intro)
 
 @st.cache_data
 def load_and_process_data(file_path):
@@ -38,6 +86,7 @@ async def fetch_weather_data(city, api_key):
             return json.loads(await response.text())
 
 def plot_city_temperature_map(city, temperature):
+    url_natural_earth = 'https://www.naturalearthdata.com/downloads/110m-cultural-vectors/naturalearth_lowres'
     world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
     city_data = world[world.name == city]
     fig, ax = plt.subplots(1, 1, figsize=(12, 8))
