@@ -23,7 +23,8 @@ def load_and_process_data(file_path):
     
     stats = data.groupby(by=["city", "season"], as_index=False).agg({"temperature": ["mean", "std"]})
     stats.columns = ["_".join(col).strip() for col in stats.columns]
-    
+    stats = stats.rename(columns={'city_': 'city', 'season_': 'season'})
+    print(stats.columns)
     data = data.merge(stats, on=["city", "season"], how="left")
     data["anomaly"] = ((data["temperature"] < data.temperature_mean - 2 * data.temperature_std) | 
                        (data["temperature"] > data.temperature_mean + 2 * data.temperature_std)).astype(int)
